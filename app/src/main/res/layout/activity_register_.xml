@@ -1,9 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register_Activity">
+    tools:context=".Register_Activity"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/welcome2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="ברוכים הבאים!"
+        android:textColor="#030303"
+        android:textSize="35dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name2"
+        android:hint="שם פרטי"
+        android:paddingLeft="170dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastname2"
+        android:hint="שם משפחה"
+        android:paddingLeft="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email2"
+        android:hint="מייל"
+        android:paddingLeft="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pass2"
+        android:hint="סיסמא"
+        android:paddingLeft="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+
+        />
+
+    <EditText
+        android:id="@+id/confirm_pass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="אימות סיסמא"
+        android:paddingLeft="140dp"
+        android:inputType="textPassword"/>
+
+
+    <Button
+        android:id="@+id/enter2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="הרשמה"
+        android:textSize="36dp"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
