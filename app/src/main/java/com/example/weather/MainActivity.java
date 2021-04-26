@@ -62,8 +62,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, Register_Activity.class);
             startActivity(intent);
         }
-
     }
 
+    private void getWeatherData(String name){
 
+    }
 }
+

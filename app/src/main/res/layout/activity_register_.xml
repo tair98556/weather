@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/email2"
         android:hint="מייל"
-        android:paddingLeft="150dp"
+        android:paddingLeft="220dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/pass2"
         android:hint="סיסמא"
-        android:paddingLeft="100dp"
+        android:paddingLeft="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
