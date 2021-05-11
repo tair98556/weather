@@ -35,7 +35,8 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_weight="0.5"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:background="@drawable/ic_launcher_foreground"
+            />
 
     </LinearLayout>
 
@@ -76,6 +77,16 @@
         android:textColor="@color/black"
         android:textSize="45dp"/>
 
+    <TextView
+        android:id="@+id/clothes"
+        android:layout_width="wrap_content"
+        android:layout_height="253dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="170dp"
+        android:text="המלצת לבוש"
+        android:textColor="@color/black"
+        android:textSize="44dp" />
 
 
 </LinearLayout>

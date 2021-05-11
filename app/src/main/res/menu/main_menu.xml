@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+    android:id="@+id/fP1"
+    android:title="מקום מועדף ראשון"
+    android:orderInCategory="100"
+    app:showAsAction="always"
+    />
+
+    <item
+        android:id="@+id/fP2"
+        android:title="מקום מועדף שני"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/fP3"
+        android:title="מקום מועדף שלישי"
+        android:orderInCategory="300"
+        app:showAsAction="always"
+        />
+
+
+
+</menu>
