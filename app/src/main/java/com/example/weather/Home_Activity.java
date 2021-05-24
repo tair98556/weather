@@ -3,10 +3,13 @@ package com.example.weather;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +17,7 @@ import android.widget.Toast;
 
 import com.example.weather.Retrofit.ApiClient;
 import com.example.weather.Retrofit.ApiInterface;
-import com.example.weather.Retrofit.Example;
+import com.example.weather.Retrofit.Weather;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,10 +28,16 @@ public class
 
 Home_Activity extends AppCompatActivity {
 
-    ImageView search;
-    TextView tempText , descText , humidityText, clothes;
-    EditText textField;
-    int feelsLike;
+    private ImageView search;
+    private TextView tempText, descText, humidityText, clothes;
+    private EditText textField;
+    private double feelsLike;
+
+    private SharedPreferences sp;
+    private Dialog d;
+    private EditText n1;
+    private EditText n2;
+    private Button s1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,30 +62,31 @@ Home_Activity extends AppCompatActivity {
 
     }
 
-    private void getWeatherData(String name){
+    private void getWeatherData(String name) {
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        Call<Example> call = apiInterface.getWeatherData(name);
-        call.enqueue(new Callback<Example>() {
-            @Override
-            public void onResponse(Call<Example> call, Response<Example> response) {
+        Call<Weather> call = apiInterface.getWeatherData(name, "metric", getResources().getString(R.string.apiKey));
 
-                feelsLike = Integer.parseInt(response.body().getMain().getFeels_like());
+        call.enqueue(new Callback<Weather>() {
+            @Override
+            public void onResponse(Call<Weather> call, Response<Weather> response) {
 
                 try {
-                    tempText.setText("טמפרטורה" + " " + response.body().getMain().getTemp() + " C");
+                    feelsLike = Double.parseDouble(response.body().getMain().getFeels_like());
+                    tempText.setText("טמפרטורה" + " " + response.body().getMain().getTemp());
                     descText.setText("מרגיש כמו" + " " + response.body().getMain().getFeels_like());
                     humidityText.setText("לחות" + " " + response.body().getMain().getHumidity());
 
-                    if (feelsLike>25){
-                        clothes.setText("מומלץ ללבוש בגדים קיציים:)");}
-                    else if ((feelsLike<25)&&(feelsLike>15)){
-                        clothes.setText("מומלץ ללבוש חולצה ארוכה דקה:)");}
-                    else if ((feelsLike>10) &&(feelsLike<15)){
-                        clothes.setText("מומלץ ללבוש חולצה וג'קט דקים");}
-                    else if (feelsLike<10){
-                        clothes.setText("מומלץ ללבוש בגדים חורפיים");}
+                    if (feelsLike > 20) {
+                        clothes.setText("מומלץ ללבוש בגדים קיציים:)");
+                    } else if ((feelsLike < 20) && (feelsLike > 15)) {
+                        clothes.setText("מומלץ ללבוש חולצה ארוכה דקה:)");
+                    } else if ((feelsLike > 10) && (feelsLike < 15)) {
+                        clothes.setText("מומלץ ללבוש חולצה וג'קט דקים");
+                    } else if (feelsLike < 10) {
+                        clothes.setText("מומלץ ללבוש בגדים חורפיים");
+                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -84,7 +94,7 @@ Home_Activity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Example> call, Throwable t) {
+            public void onFailure(Call<Weather> call, Throwable t) {
 
             }
         });
@@ -102,13 +112,37 @@ Home_Activity extends AppCompatActivity {
         return true;
     }
 
+
+    public void fav1Dialog() {
+
+        String placeName = sp.getString("placeName", null);
+        String cityName = sp.getString("cityName", null);
+
+        d = new Dialog(this);
+        d.setContentView(R.layout.fav1_dialog);
+        d.setCancelable(true);
+        d.setTitle("מקום 1");
+        n1 = d.findViewById(R.id.nameF1);
+        n2 = d.findViewById(R.id.favCity1);
+        s1 = d.findViewById(R.id.enter);
+        //s1.setOnClickListener((View.OnClickListener) this); //why? VIEW...
+        d.show();
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
         int id = item.getItemId();
-        if (id == R.id.fP1){
-           // Toast.makeText(this)
+        if (id == R.id.fP1) {
+
+            fav1Dialog();
         }
         return true;
     }
+
+
 }
+
+
+
+

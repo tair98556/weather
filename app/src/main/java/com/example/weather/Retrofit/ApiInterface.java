@@ -1,13 +1,18 @@
 package com.example.weather.Retrofit;
 
+import android.util.Log;
+import java.util.*;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("weather?appid=456e96340dd9fc068cafa3204126e801")
-    Call<Example> getWeatherData(@Query("q") String name);
+    @GET("weather?")
+    Call<Weather> getWeatherData(@Query("q") String city,
+                                 @Query("units") String units,
+                                 @Query("appid") String appid);
 
 
 }

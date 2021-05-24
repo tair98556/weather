@@ -2,7 +2,7 @@ package com.example.weather.Retrofit;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+public class Weather {
     @SerializedName("main")
     private Main main;
 
