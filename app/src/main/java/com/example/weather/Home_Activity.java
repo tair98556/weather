@@ -23,17 +23,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class
-
-
-Home_Activity extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity {
 
     private ImageView search;
     private TextView tempText, descText, humidityText, clothes;
     private EditText textField;
     private double feelsLike;
 
-    private SharedPreferences sp;
     private Dialog d;
     private EditText n1;
     private EditText n2;
@@ -115,8 +111,6 @@ Home_Activity extends AppCompatActivity {
 
     public void fav1Dialog() {
 
-        String placeName = sp.getString("placeName", null);
-        String cityName = sp.getString("cityName", null);
 
         d = new Dialog(this);
         d.setContentView(R.layout.fav1_dialog);

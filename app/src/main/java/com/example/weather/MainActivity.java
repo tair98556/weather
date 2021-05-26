@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Intent intent = new Intent(MainActivity.this, Home_Activity.class);
                                 startActivity(intent);
                             }
-                            /*else {
-                                Toast.makeText(this, "מייל או סיסמא אינם תקינים", Toast.LENGTH_SHORT).show();
+                            else {
+                                Toast.makeText(MainActivity.this, "מייל או סיסמא אינם תקינים", Toast.LENGTH_SHORT).show();
                                 return;
-                            }*/
+                            }
 
 
                         }
