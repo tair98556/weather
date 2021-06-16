@@ -1,22 +1,21 @@
 package com.example.weather;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     private String email;
     private String name;
     private String lastName;
     private String pass;
-    private ArrayList<String> locations;
 
     public User(String email, String name, String lastName, String pass) { // builder operation
         this.email = email;
         this.name = name;
         this.lastName = lastName;
         this.pass = pass;
-        this.locations= new ArrayList<String>();
     }
-
+    public User (){}
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -46,7 +45,4 @@ public class User {
         this.email = email;
     }
 
-    public void addLocation(String location){
-        this.locations.add(location);
-    }
 }

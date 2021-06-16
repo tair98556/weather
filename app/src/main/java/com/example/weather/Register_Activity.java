@@ -18,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Register_Activity extends AppCompatActivity implements View.OnClickListener {
     private EditText name;
     private EditText lastname;
@@ -28,6 +31,7 @@ public class Register_Activity extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
+    private User user;
 
 
     @Override
@@ -51,6 +55,7 @@ public class Register_Activity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+
         if (v == register) {
             // convert the edit text to string
             String namestr = name.getText().toString();
@@ -59,6 +64,9 @@ public class Register_Activity extends AppCompatActivity implements View.OnClick
             String passwordstr = pass.getText().toString();
             String confirm_password = confirm_pass.getText().toString();
 
+
+
+
             if (!passwordstr.equals(confirm_password)) {
                 Toast.makeText(this, "סיסמאות לא תואמות", Toast.LENGTH_SHORT).show();
                 pass.setText("");
@@ -66,24 +74,26 @@ public class Register_Activity extends AppCompatActivity implements View.OnClick
                 return;
             }
 
-            if (passwordstr.length() < 5) {
+            else if (passwordstr.length() < 5) {
                 Toast.makeText(this, "הסיסמא צריכה להיות יותר מ-5 תווים", Toast.LENGTH_SHORT).show();
                 pass.setText("");
                 confirm_pass.setText("");
                 return;
             }
-            User user = new User(emailstr, namestr, laststr, passwordstr);
-            firebaseAuth.createUserWithEmailAndPassword(emailstr, passwordstr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        databaseReference.child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
-                        Intent intent = new Intent(Register_Activity.this, Home_Activity.class);
-                        startActivity(intent);
-                    }
-                }
-            });
 
+            else{
+                user = new User(emailstr, namestr, laststr, passwordstr);
+                firebaseAuth.createUserWithEmailAndPassword(emailstr, passwordstr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            databaseReference.child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+                            Intent intent = new Intent(Register_Activity.this, Home_Activity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+            }
         }
     }
 }

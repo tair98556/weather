@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/mainscreen">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:layout_marginTop="90dp"
+        android:textSize="35sp"
         android:text="ברוכים הבאים!"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -23,7 +25,7 @@
         android:hint="הכנס מייל"
         android:paddingLeft="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
 
         />
 
@@ -42,9 +44,11 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="76dp"
         android:text="התחברות"
+        android:background="#00424242"
         android:textSize="36dp"
-        android:layout_marginTop="20dp"/>
+        />
 
     <Button
         android:id="@+id/newUser"
@@ -53,6 +57,7 @@
         android:layout_gravity="center"
         android:text="אין לך חשבון? הרשם עוד היום"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"/>
+        android:background="#00424242"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

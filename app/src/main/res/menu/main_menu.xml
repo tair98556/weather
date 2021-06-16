@@ -4,23 +4,23 @@
 
     <item
     android:id="@+id/fP1"
-    android:title="מקום מועדף ראשון"
+    android:title="הוספת מקום מועדף"
     android:orderInCategory="100"
-    app:showAsAction="always"
+    app:showAsAction="never"
     />
 
     <item
-        android:id="@+id/fP2"
-        android:title="מקום מועדף שני"
+        android:id="@+id/myProfile"
+        android:title="הפרופיל שלי"
         android:orderInCategory="200"
-        app:showAsAction="always"
+        app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/fP3"
-        android:title="מקום מועדף שלישי"
+        android:id="@+id/logOut"
+        android:title="התנתקות"
         android:orderInCategory="300"
-        app:showAsAction="always"
+        app:showAsAction="never"
         />
 
 

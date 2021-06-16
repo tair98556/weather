@@ -3,36 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/dialogscreen"
     android:orientation="vertical"
+
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="בחירת מקום מועדף ראשון!"
-        android:textSize="30dp"
+        android:text="הוספת מקום מועדף"
+        android:layout_marginTop="85dp"
+        android:textSize="40dp"
         android:textColor="@color/black"
         />
 
     <EditText
-        android:id="@+id/nameF1"
+        android:id="@+id/nameF"
         android:layout_width="230dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:hint="הגדרת המקום"
+        android:layout_marginTop="85dp"
+        android:hint="כינוי המקום"
         android:paddingLeft="100dp"
         android:textColor="@color/black"
         />
 
     <EditText
-        android:id="@+id/favCity1"
+        android:id="@+id/favCity"
         android:layout_width="230dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:hint="שם העיר"
         android:paddingLeft="100dp"
         android:textColor="@color/black"
@@ -43,9 +45,10 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:text="שמירה"
-        android:textSize="36dp" />
+        android:layout_marginTop="55dp"
+        android:text="הוספה"
+        android:textSize="36dp"
+        android:background="#00424242"/>
 
 
 </LinearLayout>

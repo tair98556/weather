@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             else {
-            firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(), userPass.getText().toString())
+            firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString().trim(), userPass.getText().toString().trim())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                             else {
                                 Toast.makeText(MainActivity.this, "מייל או סיסמא אינם תקינים", Toast.LENGTH_SHORT).show();
+                                userEmail.setText("");
+                                userPass.setText("");
                                 return;
                             }
 
